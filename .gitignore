@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dev-server*.log
+output/
+.playwright-mcp/
+
+/CAFFE MILANO.pdf
+/CaffeMilanoSpace.mp4
+/WhatsApp Image*
+/WhatsApp Video*
+/caffe-*.json
+/caffe-*.md
+/caffe-*.png
+/gucci-*.json
+/gucci-*.png
+/header-logo-debug.json
