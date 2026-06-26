@@ -96,6 +96,7 @@
 
 html {
   background: var(--cream);
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -104,6 +105,10 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   background: var(--cream);
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 body,
@@ -184,14 +189,14 @@ h2 {
 
 .site-header__brand {
   display: inline-flex;
-  width: 86px;
-  height: 86px;
+  width: 104px;
+  height: 104px;
   align-items: center;
 }
 
 .site-header__brand img {
-  width: 86px;
-  height: 86px;
+  width: 104px;
+  height: 104px;
   object-fit: contain;
   object-position: left center;
 }
@@ -583,7 +588,7 @@ h2 {
 
 .menu-side__copy {
   display: flex;
-  min-height: 430px;
+  min-height: 460px;
   flex-direction: column;
   align-items: flex-start;
   padding: 45px clamp(42px, 5.6vw, 76px) 42px;
@@ -607,7 +612,7 @@ h2 {
 }
 
 .menu-side__image {
-  height: clamp(300px, 31vw, 390px);
+  height: clamp(330px, 34vw, 430px);
   overflow: hidden;
 }
 
@@ -645,7 +650,7 @@ h2 {
 }
 
 .catering__intro span:first-child {
-  left: 22%;
+  left: 17%;
 }
 
 .catering__intro span:nth-child(3) {
@@ -694,14 +699,17 @@ h2 {
   z-index: 2;
   display: grid;
   grid-template-columns: 44.8% 55.2%;
-  min-height: 730px;
+  align-items: stretch;
+  min-height: 0;
   overflow: hidden;
   background: var(--cream);
+  scroll-margin-top: 96px;
 }
 
 .drinks__copy {
+  grid-column: 1;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   padding: 82px 35px 0;
 }
 
@@ -727,7 +735,12 @@ h2 {
 }
 
 .drinks__media {
-  height: 730px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 55.2%;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -737,6 +750,7 @@ h2 {
   min-height: 860px;
   place-items: center;
   align-content: start;
+  overflow: hidden;
   padding: 94px 24px 76px;
   background: var(--cream);
   text-align: center;
@@ -1064,7 +1078,8 @@ h2 {
   display: flex;
   min-height: 84px;
   align-items: center;
-  gap: clamp(28px, 4vw, 62px);
+  justify-content: center;
+  gap: clamp(18px, 2.6vw, 42px);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -1184,7 +1199,7 @@ h2 {
 
 .menu-category {
   display: grid;
-  grid-template-columns: 38% 1fr;
+  grid-template-columns: minmax(260px, 32%) 1fr;
   min-height: 620px;
   padding: 80px 35px;
   background: var(--cream);
@@ -1200,17 +1215,19 @@ h2 {
   position: sticky;
   top: 190px;
   align-self: start;
-  padding-right: 46px;
+  padding-right: clamp(22px, 3vw, 38px);
 }
 
 .menu-category__intro h2 {
-  font-size: clamp(3.8rem, 5.4vw, 6.6rem);
-  line-height: 0.94;
+  font-size: clamp(2.9rem, 3.8vw, 4.2rem);
+  line-height: 0.98;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .menu-category__intro p {
   margin-top: 22px;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.45;
 }
@@ -1559,13 +1576,14 @@ h2 {
 
   .site-header__brand,
   .site-header__brand img {
-    width: 48px;
-    height: 48px;
+    width: 62px;
+    height: 62px;
   }
 
   .mobile-toggle {
     z-index: 102;
     display: grid;
+    justify-self: end;
     width: 44px;
     height: 44px;
     place-items: center;
@@ -1629,7 +1647,9 @@ h2 {
   }
 
   .hero__side--left {
-    left: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
   }
 
   .hero__side--right {
@@ -1706,7 +1726,9 @@ h2 {
 
   .menu-side__image,
   .drinks__media {
-    min-height: 430px;
+    position: relative;
+    width: 100%;
+    min-height: 460px;
   }
 
   .catering {
@@ -1726,7 +1748,7 @@ h2 {
   .catering__grid,
   .footer-top,
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .experience-card {
@@ -1809,11 +1831,7 @@ h2 {
   }
 
   .menu-page__categories {
-    top: 72px;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    min-height: 82px;
-    padding: 0 18px;
+    display: none;
   }
 
   .course-builder {
@@ -1840,6 +1858,16 @@ h2 {
   .menu-category__intro {
     position: static;
     padding: 0 0 32px;
+  }
+
+  .menu-category__intro h2 {
+    font-size: clamp(2.7rem, 12vw, 3.35rem);
+    line-height: 1;
+  }
+
+  .menu-category__intro p {
+    margin-top: 14px;
+    font-size: 16px;
   }
 
   .menu-page__contact {
@@ -1890,15 +1918,63 @@ h2 {
     padding: 12px 18px 28px;
   }
 
+  .drinks {
+    scroll-margin-top: 72px;
+  }
+
+  .gift-cards {
+    overflow: hidden;
+  }
+
+  .gift-cards__stack {
+    width: min(330px, 100%);
+    height: 250px;
+  }
+
+  .gift-card {
+    width: 250px;
+    height: 150px;
+  }
+
+  .gift-card--cream {
+    transform: translate(-85%, -52%) rotate(-14deg);
+  }
+
+  .gift-card--gold {
+    transform: translate(-52%, -42%) rotate(6deg);
+  }
+
+  .gift-card--dark {
+    transform: translate(-15%, -54%) rotate(-4deg);
+  }
+
   .footer-top,
   .footer-links {
     min-height: 0;
-    gap: 0;
+    gap: 0 22px;
   }
 
   .site-footer section,
   .footer-links section {
     padding: 34px 0;
+    text-align: left;
+  }
+
+  .site-footer p,
+  .site-footer a {
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .footer-logo {
+    grid-column: 1 / -1;
+    place-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    width: 72px;
   }
 
   .footer-wordmark {

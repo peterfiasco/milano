@@ -16,9 +16,6 @@ const reservationHref = '/reservation';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Catering', href: '/#catering' },
-  { label: 'Gift Cards', href: '/#gift-cards' },
-  { label: 'About', href: '/#about' },
   { label: 'Reserve a Table', href: reservationHref, dropdown: true },
   { label: 'Contact', href: '/#contact' },
 ];
@@ -503,7 +500,7 @@ function SignatureMenu() {
     <section className="signature-menu" id="menu">
       <div className="menu-board" data-reveal>
         <div className="menu-board__head">
-          <h2>Signature<br />Plates</h2>
+          <h2>Signature<br />Drinks</h2>
           <Utensils aria-hidden="true" />
         </div>
         <div className="menu-board__items">
@@ -769,7 +766,7 @@ function ReservationPage() {
 }
 
 function Footer() {
-  const discover = ['Home', 'Catering', 'Gift Cards', 'About', 'Contact'];
+  const discover = ['Home', 'Contact'];
 
   return (
     <footer className="site-footer" id="contact">
